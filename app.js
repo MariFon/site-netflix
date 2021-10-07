@@ -1,8 +1,21 @@
+let filmes = ["imagens/chegada.png", "imagens/escola.png", "imagens/ontem.png", "imagens/ww.png"]
+
 function CarregarFilmes() {
+    let totalFilmes = filmes.length
+    let divListaFilmes = document.querySelector(".lista-filmes")
 
-    let filmes = ["imagens/chegada.png", "imagens/escola.png", "imagens/ontem.png", "imagens/ww.png"]
-
-    for (let controle = 0; controle < 4; controle = controle + 1) { 
-        document.querySelector(".lista-filmes").innerHTML += "<img src=" + filmes[controle] + ">" 
+    divListaFilmes.innerHTML =""
+    for (let i = 0; i < totalFilmes; i++) {
+        divListaFilmes.innerHTML += "<img src=" + filmes[i] + ">"
     }
 }
+
+function AdicionarFilme() {
+    let nomeFilme = document.querySelector("#nome-do-filme").value
+    let caminhoCompleto = "imagens/" + nomeFilme
+
+    filmes.push(caminhoCompleto)
+
+    CarregarFilmes()
+}
+
